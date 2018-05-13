@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=PersonMenu
+comment0.text=\r\n\ Both\ teacher\ and\ student\ menus\ have\ access\ to\:\r\n\ \ -view\ names\r\n\ \ -change\ names\r\n\ \ -add\ a\ new\ student\ or\ teacher\r\n\r\n\ @author\ (your\ name\ here)\r\n\ @version\ (version\ number\ or\ date\ here)\r\n
+comment1.params=
+comment1.target=void\ mainMenu()
+comment2.params=
+comment2.target=void\ viewNames()
+comment3.params=
+comment3.target=void\ changeName()
+comment4.params=
+comment4.target=void\ addNewPerson()
+numComments=5

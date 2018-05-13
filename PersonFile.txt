@@ -1,0 +1,18 @@
+Student
+Diane Perry
+67881
+11
+3.75
+Student
+Sarah Wright
+78122
+10
+3.0
+Teacher
+Howard Roberts
+44789
+History
+Teacher
+Eric Cooper
+22786
+Math

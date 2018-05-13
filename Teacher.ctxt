@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=type\ name\ id\ subject
+comment0.target=Teacher(java.lang.String,\ java.lang.String,\ int,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getSubject()
+comment2.params=
+comment2.target=void\ personQuote()
+numComments=3
