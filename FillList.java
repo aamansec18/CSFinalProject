@@ -7,14 +7,25 @@ import java.io.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FillList extends GetFile
+public class FillList
 {
     //ArrayList
     ArrayList<Person> people;
 
+    Scanner fIn;
+
     //constructor
     FillList()
     {
+        try
+        {
+            fIn = new Scanner(new File("PersonFile.txt"));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
         people = new ArrayList<Person>();
 
     }   //ends constructor
@@ -47,9 +58,6 @@ public class FillList extends GetFile
                 people.add(new Teacher(type, name, id, subject));
 
             }   //ends else statement
-
         }   //ends while loop
-        StartMenu newMenu = new StartMenu(people);
-        newMenu.enterId();
     }   //ends fillArray method
 }   //ends FillList class
