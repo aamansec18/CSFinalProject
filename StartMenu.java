@@ -6,7 +6,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StartMenu extends FillList
+public class StartMenu
 {
     //Scanner
     Scanner in;
@@ -16,31 +16,20 @@ public class StartMenu extends FillList
     TeacherMenu personTeacher;
     int userId;
     //instance of Search
-    Search find; 
-    
-    //constructor
-    StartMenu()
+    Search find;
+
+    //constructor that is called to update arraylist
+    StartMenu(ArrayList<Person> people)
     {
         in = new Scanner(System.in);
         userId = 0;
         find = new Search(people);
-        
-        
-        
-    }   //ends constructor
-    
-    //constructor that is called to update arraylist
-    StartMenu(ArrayList<Person> updatedPeople)
-    {
-        in = new Scanner(System.in);
-        userId = 0;
-        find = new Search(people); 
-        people = updatedPeople;
+
         
     }   //ends constructor
     
     //enter id method
-    public void enterId()
+    public void enterId(ArrayList<Person> people)
     {
         System.out.println("Enter ID.");
         userId = in.nextInt();
@@ -56,14 +45,14 @@ public class StartMenu extends FillList
             
         }   //ends while loop
         */
-        if (searchResult >= 0 && people.get(searchResult).getType() == "Student")
+        if (searchResult >= 0 && (people.get(searchResult).getType().equals("Student")))
         {
             personStudent = new StudentMenu(people, userId);
             personStudent.mainMenu();
            
         }   //ends if statement
         
-        else if (searchResult >= 0 && people.get(searchResult).getType() == "Teacher")
+        else if (searchResult >= 0 && people.get(searchResult).getType().equals("Teacher"))
         {
             personTeacher = new TeacherMenu(people, userId);
             personTeacher.mainMenu(); 

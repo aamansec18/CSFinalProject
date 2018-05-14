@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -49,12 +50,13 @@ public class TeacherMenu implements PersonMenu
         System.out.println("\t2. Change Name");
         System.out.println("\t3. Add Teacher");
         input = in.nextInt();
+        in.nextLine();
 
         switch(input)
         {
             case 0: //call main menu -- create instance of menu class here to pass in current state of arraylist
             returnTo = new StartMenu(teachers);
-            returnTo.enterId();
+            returnTo.enterId(teachers);
             break;
 
             case 1: //view names -- a subclass class that extends StudentMenu 
@@ -79,23 +81,29 @@ public class TeacherMenu implements PersonMenu
         System.out.println('\u000C');   //clears screen
         System.out.println("<------------- Press 0 to return.");
         System.out.println();
-        for(int i = 0; i < teachers.size(); i++)
+        Iterator iterator = teachers.iterator();
+        System.out.println("<------------- Press 0 to return.");
+        System.out.println();
+        int i = 0;
+        while (iterator.hasNext() && i < teachers.size())
         {
-            if (teachers.get(i).getType() == "Teacher")
+            if(teachers.get(i).getType().equals("Teacher"))
             {
-                System.out.print(teachers.get(i).getName() + "                  " + teachers.get(i).getId() + "         " + ((Teacher)(teachers.get(i))).getSubject());
+                System.out.print(teachers.get(i).getName() + "                  " + teachers.get(i).getId() + "         " + ((Teacher)(teachers.get(i))).getSubject() + "   " );
 
-                System.out.println();    
+                System.out.println();
+            } //ends if statement
 
-            }   //ends if statement
+            i++;
 
-            else
-            {
-                continue;
-
-            }   //ends else
         }   //ends for loop
 
+        input = in.nextInt();
+
+        if (input == 0)
+        {
+            mainMenu();
+        }   //ends if statement
     }   //ends viewNames method
     //change name
     public void changeName()
@@ -134,6 +142,7 @@ public class TeacherMenu implements PersonMenu
 
         System.out.println("Enter teacher's ID");
         id = in.nextInt();
+        in.nextLine();
 
         System.out.println("Enter teacher's subject.");
         subject = in.nextLine();

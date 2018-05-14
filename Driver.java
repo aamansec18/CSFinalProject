@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class Driver here.
@@ -9,12 +10,13 @@ public class Driver
 {
     public static void main (String[] args)
     {
-        GetFile openFile = new GetFile();
         FillList newArray = new FillList();
-        StartMenu runProgram = new StartMenu();
-        newArray.fillArray();
-        //runProgram.enterId();
-        
+        ArrayList<Person> masterList = newArray.fillArray();
+
+        StartMenu runProgram = new StartMenu(masterList);
+        runProgram.enterId(masterList);
+
+        //Aishteru Nyanata
     }   //ends main menu
 
 }   //ends Driver class
