@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 /**
  * Write a description of class StudentMenu here.
@@ -51,12 +52,13 @@ public class StudentMenu implements PersonMenu
         System.out.println("\t4. Change GPA");
         System.out.println("\t5. Add Student");
         input = in.nextInt();
+        in.nextLine();
 
         switch(input)
         {
             case 0: //call main menu -- create instance of menu class here to pass in current state of arraylist
             returnTo = new StartMenu(students);
-            returnTo.enterId();
+            returnTo.enterId(students);
             break;
 
             case 1: //view names -- a subclass class that extends StudentMenu 
@@ -88,24 +90,27 @@ public class StudentMenu implements PersonMenu
         System.out.println('\u000C');   //clears screen
         System.out.println("<------------- Press 0 to return.");
         System.out.println();
-        for(int i = 0; i < students.size(); i++)
+        Iterator iterator = students.iterator();
+        System.out.println("<------------- Press 0 to return.");
+        System.out.println();
+        int i = 0;
+        while (iterator.hasNext() && students.get(i).getType().equals("Student"))
         {
-            if (students.get(i).getType() == "Student")
-            {
-                System.out.print(students.get(i).getName() + "                  " + students.get(i).getId() + "         " + ((Student)(students.get(i))).getYear() + "   " + 
+
+            System.out.print(students.get(i).getName() + "                  " + students.get(i).getId() + "         " + ((Student)(students.get(i))).getYear() + "   " +
                     ((Student)(students.get(i))).getGPA() + "     ");
 
-                System.out.println();    
-
-            }   //ends if statement
-
-            else
-            {
-                continue;
-
-            }   //ends else
+            System.out.println();
+            i++;
         }   //ends for loop
 
+        input = in.nextInt();
+
+        if (input == 0)
+        {
+            mainMenu();
+
+        }   //ends if statement
     }   //ends viewNames method
     //change name
     public void changeName()
@@ -197,17 +202,21 @@ public class StudentMenu implements PersonMenu
 
         System.out.println("Enter student's ID");
         id = in.nextInt();
+        in.nextLine();
 
         System.out.println("Enter student's year");
         year = in.nextInt();
+        in.nextLine();
 
         System.out.println("Enter student's gpa.");
         gpa = in.nextDouble();
+        in.nextLine();
 
         students.add(new Student(type, name, id, year, gpa));
 
         System.out.println("New Student has been added. Return to main menu");
         input = in.nextInt();
+        in.nextLine();
 
         if (input == 0)
         {

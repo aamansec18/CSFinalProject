@@ -31,7 +31,7 @@ public class FillList
     }   //ends constructor
 
     //fill ArrayList method -- using passed in scanner
-    public void fillArray()
+    public ArrayList<Person> fillArray()
     {
         while(fIn.hasNext())
         {
@@ -59,5 +59,6 @@ public class FillList
 
             }   //ends else statement
         }   //ends while loop
+        return people;
     }   //ends fillArray method
 }   //ends FillList class
